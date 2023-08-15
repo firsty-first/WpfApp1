@@ -13,12 +13,22 @@
         </Grid.ColumnDefinitions>
 
         <!-- Menu Bar (Left Side) -->
-        <Border Grid.Column="0" Background="AliceBlue" Width="200">
-            <StackPanel>
-                <Button Content="Dashboard" Click="Dashboardclick" Margin="10"/>
-                <Button Content="Reports" Margin="10"/>
-                <Button Content="Settings" Margin="10"/>
-                <Button Content="Logout" Margin="10"/>
+        <Border Grid.Column="0" Background="BlueViolet" Width="200"
+                Visibility="Visible"
+                
+                >
+            <StackPanel
+                >
+                
+                <Button Content="Dashboard"  Background="BlueViolet" Click="Dashboardclick" Margin="10"
+                        Foreground="White"
+/>
+                <Button Content="Reports" Background="BlueViolet" Margin="10"
+                            Foreground="White"/>
+                <Button Content="Settings" Background="BlueViolet" Margin="10"
+                            Foreground="White"/>
+                <Button Content="Logout" Background="BlueViolet" Margin="10"
+                            Foreground="White"/>
 
             </StackPanel>
         </Border>
@@ -26,10 +36,14 @@
         <!-- Content Area (Right Side) -->
         <Border Grid.Column="1" Background="White" Padding="20">
             <!-- You can place your content here -->
-            
-            
-            
-            
+
+            <Button Content="Choose File" Background="LightBlue" Margin="1"
+                            Foreground="White"
+                    Click="PickImage_Click"
+                    />
+
+
+
         </Border>
 
     </Grid>
