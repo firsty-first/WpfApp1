@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,24 @@ namespace WpfApp1
         {
             InitializeComponent();
        
+        }
+
+        private void Dashboardclick(object sender, RoutedEventArgs e)
+        {
+            // Handle the button click event here
+            MessageBox.Show("Button clicked!");
+        }
+        private void PickImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg; *.png; *.bmp)|*.jpg; *.png; *.bmp|All Files (*.*)|*.*";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string selectedImagePath = openFileDialog.FileName;
+                // Do something with the selectedImagePath, like displaying it or processing the image
+                MessageBox.Show($"Selected image: {selectedImagePath}");
+            }
         }
     }
 }
