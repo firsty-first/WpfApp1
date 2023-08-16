@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,18 +23,48 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        string image = null;
+        private ObservableCollection<string> imagePaths = new ObservableCollection<string>();
+
         public MainWindow()
         {
             InitializeComponent();
-       
+            imageListBox.ItemsSource = imagePaths;
+
         }
 
         private void Dashboardclick(object sender, RoutedEventArgs e)
         {
             // Handle the button click event here
-            MessageBox.Show("Button clicked!");
+            MessageBox.Show("Dashboard");
         }
+
+        //Multiple images
+
+
+
+
+        private void OnSelectImagesClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Multiselect = true;
+            openFileDialog.Filter = "Image files (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif|All files (*.*)|*.*";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                foreach (string imagePath in openFileDialog.FileNames)
+                {
+                    imagePaths.Add(imagePath);
+                }
+            }
+        }
+
+
+
+
+
+
+
+
         private void PickImage_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -41,7 +72,7 @@ namespace WpfApp1
 
             if (openFileDialog.ShowDialog() == true)
             {
-                image = openFileDialog.FileName;
+               string image = openFileDialog.FileName;
                 // Do something with the selectedImagePath, like displaying it or processing the image
                 
                 openFileDialog.RestoreDirectory = true;
@@ -53,7 +84,7 @@ namespace WpfApp1
                     bitmap.BeginInit();
                     bitmap.UriSource = new Uri(image);
                     bitmap.EndInit();
-                    imgview.Source = bitmap;
+                    //imgview.Source = bitmap; turn it on for single image
             
 
             }

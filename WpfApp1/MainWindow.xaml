@@ -44,10 +44,15 @@
                     Click="PickImage_Click" Height="21" VerticalAlignment="Top"
                     />
 
+            <ListBox x:Name="imageListBox" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding}" Width="500" Height="300" Margin="2"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Content="Select Images" Click="OnSelectImagesClick" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10"/>
 
-            <Image Name="imgview" Margin="18,37,225,115"
-                   
-                   />
 
 
         </Grid>
