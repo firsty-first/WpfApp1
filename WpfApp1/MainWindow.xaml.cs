@@ -11,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
@@ -21,6 +22,7 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        string image = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -39,10 +41,23 @@ namespace WpfApp1
 
             if (openFileDialog.ShowDialog() == true)
             {
-                string selectedImagePath = openFileDialog.FileName;
+                image = openFileDialog.FileName;
                 // Do something with the selectedImagePath, like displaying it or processing the image
-                MessageBox.Show($"Selected image: {selectedImagePath}");
+                
+                openFileDialog.RestoreDirectory = true;
+
+             
+                    // string selectedFileName = dlg.FileName;
+                    //   image.Content = selectedFileName;
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(image);
+                    bitmap.EndInit();
+                    imgview.Source = bitmap;
+            
+
             }
         }
+       
     }
 }

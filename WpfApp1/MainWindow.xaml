@@ -19,7 +19,7 @@
                 >
             <StackPanel
                 >
-                
+
                 <Button Content="Dashboard"  Background="BlueViolet" Click="Dashboardclick" Margin="10"
                         Foreground="White"
 />
@@ -32,19 +32,26 @@
 
             </StackPanel>
         </Border>
-                   
+
         <!-- Content Area (Right Side) -->
-        <Border Grid.Column="1" Background="White" Padding="20">
+        <Grid Grid.Column="1" Background="White" 
+                
+                >
             <!-- You can place your content here -->
 
-            <Button Content="Choose File" Background="LightBlue" Margin="1"
+            <Button Content="Choose File" Background="LightBlue" Margin="1,1,1,0"
                             Foreground="White"
-                    Click="PickImage_Click"
+                    Click="PickImage_Click" Height="21" VerticalAlignment="Top"
                     />
 
 
+            <Image Name="imgview" Margin="18,37,225,115"
+                   
+                   />
 
-        </Border>
+
+        </Grid>
+        
 
     </Grid>
 </Window>
