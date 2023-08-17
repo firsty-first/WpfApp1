@@ -51,7 +51,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Button Content="Select Images" Click="OnSelectImagesClick" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10"/>
+            <Button Content="Select Images" Background="GreenYellow" Click="OnSelectImagesClick" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10"/>
 
 
 

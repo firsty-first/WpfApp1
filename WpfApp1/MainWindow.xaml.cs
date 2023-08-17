@@ -23,7 +23,7 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ObservableCollection<string> imagePaths = new ObservableCollection<string>();
+        public ObservableCollection<string> imagePaths = new ObservableCollection<string>();
 
         public MainWindow()
         {
